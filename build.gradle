@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation group: 'com.github.dozermapper', name: 'dozer-core', version: '6.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

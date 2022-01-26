@@ -1,12 +1,13 @@
 package com.deciphex.deciphex.assignment.models;
 
+import com.deciphex.deciphex.assignment.enums.LifecycleStatus;
 import lombok.Data;
 
 @Data
 public class Slide {
 
     //Note:
-    //1. Each Slide is processed in parallel
+    //1. Each Slide is processed in parallel ---> Potential multi-threading
     //2. When the application is restarted, the job is resumed from where it left off (PROCESSING slides are re QUEUED):
     // ----> so a listener will have to pick up any Study(s) in a queued and processing state
 
@@ -21,5 +22,7 @@ public class Slide {
     private String organ;
     private String section;
     private String block;
+    private LifecycleStatus lifecycleStatus;
+
 
 }
