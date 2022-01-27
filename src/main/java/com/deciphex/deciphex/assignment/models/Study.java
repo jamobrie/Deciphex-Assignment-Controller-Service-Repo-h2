@@ -10,6 +10,9 @@ import java.util.UUID;
 public class Study {
 
     private Long id;
+    private String studyName;
+    private String patientName;
+    private String assessionId;
     private List<Slide> slideList;
     private LifecycleStatus lifecycleStatus;
 

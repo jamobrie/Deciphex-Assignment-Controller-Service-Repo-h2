@@ -15,14 +15,24 @@ public class Slide {
     //(A) Down
     //(B) Restarting
 
-    //TODO -> Add ID
+    private long id;
     private String slideName;
 
-    //TODO Is this the external metadata?
+    //Volatile data, subject to change
     private String organ;
     private String section;
     private String block;
     private LifecycleStatus lifecycleStatus;
 
-
+    @Override
+    public String toString() {
+        return "Slide{" +
+                "id=" + id +
+                ", slideName='" + slideName + '\'' +
+                ", organ='" + organ + '\'' +
+                ", section='" + section + '\'' +
+                ", block='" + block + '\'' +
+                ", lifecycleStatus=" + lifecycleStatus +
+                '}';
+    }
 }
