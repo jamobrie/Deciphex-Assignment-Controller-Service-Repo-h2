@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface SlideRepository extends JpaRepository<com.deciphex.deciphex.assignment.entities.Slide, Integer> {
+public interface SlideRepository extends JpaRepository<Slide, Long> {
 
-    Optional<Slide> findByName(String slideName);
+    Optional<Slide> findBySlideName(final String slideName);
 
 }

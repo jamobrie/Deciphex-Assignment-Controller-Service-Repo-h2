@@ -21,7 +21,7 @@ public class SlideService {
 
     public Slide updateSlideInfo(Slide slideToUpdate) {
 
-        Optional<com.deciphex.deciphex.assignment.entities.Slide> existingSlide = slideRepository.findByName(slideToUpdate.getSlideName());
+        Optional<com.deciphex.deciphex.assignment.entities.Slide> existingSlide = slideRepository.findBySlideName(slideToUpdate.getSlideName());
 
         if (existingSlide.isEmpty()) {
             throw new SlideDoesNotExistForThatNameException(slideToUpdate.getSlideName());
@@ -37,7 +37,7 @@ public class SlideService {
             throw new InvalidSlideNameException();
         }
 
-        Optional<com.deciphex.deciphex.assignment.entities.Slide> existingSlide = slideRepository.findByName(slideName);
+        Optional<com.deciphex.deciphex.assignment.entities.Slide> existingSlide = slideRepository.findBySlideName(slideName);
 
         if (existingSlide.isEmpty()) {
             throw new SlideDoesNotExistForThatNameException(slideName);

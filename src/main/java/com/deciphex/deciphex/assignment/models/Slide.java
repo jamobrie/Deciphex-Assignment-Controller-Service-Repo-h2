@@ -15,7 +15,7 @@ public class Slide {
     //(A) Down
     //(B) Restarting
 
-    private long id;
+    private Long id;
     private String slideName;
 
     //Volatile data, subject to change

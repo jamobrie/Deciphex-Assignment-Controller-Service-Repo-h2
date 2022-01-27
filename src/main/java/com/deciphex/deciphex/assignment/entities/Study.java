@@ -17,7 +17,7 @@ public class Study implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "study_id")
-    private long id;
+    private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "study")
     private Set<Slide> slide;
