@@ -3,7 +3,6 @@ package com.deciphex.deciphex.assignment.service;
 import com.deciphex.deciphex.assignment.converter.ConversionHelper;
 import com.deciphex.deciphex.assignment.entities.Study;
 import com.deciphex.deciphex.assignment.models.StudyStatus;
-import com.deciphex.deciphex.assignment.publisher.StudyPublisher;
 import com.deciphex.deciphex.assignment.repository.StudyRepository;
 import com.deciphex.deciphex.assignment.validator.StudyValidator;
 import lombok.AllArgsConstructor;
@@ -20,13 +19,10 @@ public class StudyService {
     private final StudyValidator studyValidator;
     private final StudyRepository studyRepository;
     private final ConversionHelper conversionHelper;
-    private final StudyPublisher studyPublisher;
 
     public com.deciphex.deciphex.assignment.models.Study createStudy(com.deciphex.deciphex.assignment.models.Study newStudy) {
 
         studyValidator.validateStudy(newStudy);
-
-        studyPublisher.publishStudyToQueue(newStudy);
 
         Study study = conversionHelper.convertStudyModelToEntity(newStudy);
 
