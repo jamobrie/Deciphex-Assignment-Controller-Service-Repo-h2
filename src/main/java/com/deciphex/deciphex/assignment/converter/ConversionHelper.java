@@ -21,11 +21,16 @@ public class ConversionHelper {
     public Study convertStudyModelToEntity(com.deciphex.deciphex.assignment.models.Study newStudy) {
         Study study = new Study();
         try {
-            mapper.map(newStudy, Study.class);
+            study = mapper.map(newStudy, Study.class);
+
         } catch (MappingException mappingException) {
             log.error(String.format("Error occurred during mapping process of %s, see exception here for more details: "
                     + mappingException.getLocalizedMessage(), com.deciphex.deciphex.assignment.models.Study.class));
         }
+
+        Study aasd = new Study();
+
+        study.getSlideList().get(0).setStudy(new Study());
 
         return study;
     }
@@ -33,7 +38,7 @@ public class ConversionHelper {
     public com.deciphex.deciphex.assignment.models.Study convertStudyEntityToModel(Study studyEntity) {
         com.deciphex.deciphex.assignment.models.Study study = new com.deciphex.deciphex.assignment.models.Study();
         try {
-            mapper.map(studyEntity, com.deciphex.deciphex.assignment.models.Study.class);
+            study = mapper.map(studyEntity, com.deciphex.deciphex.assignment.models.Study.class);
         } catch (MappingException mappingException) {
             log.error(String.format("Error occurred during mapping process of %s, see exception here for more details: "
                     + mappingException.getLocalizedMessage(), com.deciphex.deciphex.assignment.models.Study.class));

@@ -11,10 +11,6 @@ import java.io.Serializable;
 @Table(name = "SLIDE")
 public class Slide implements Serializable {
 
-    @ManyToOne
-    @JoinColumn(name = "study_id", nullable = false)
-    private Study study;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -34,6 +30,14 @@ public class Slide implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private LifecycleStatus lifecycleStatus;
+
+    @ManyToOne()
+    @JoinColumn(name="role_id", referencedColumnName = "role_id", insertable = false, updatable = false)
+    private UserRole userRole;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "study_id", nullable = false)
+    private Study study;
 
     public Slide() {
     }

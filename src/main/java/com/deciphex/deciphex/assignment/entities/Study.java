@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,10 +20,22 @@ public class Study implements Serializable {
     @Column(name = "study_id")
     private Long id;
 
+    @Column(name = "studyName")
+    private String studyName;
+
+    @Column(name = "patientName")
+    private String patientName;
+
+    @Column(name = "assessionId")
+    private String assessionId;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "study")
-    private Set<Slide> slide;
+    private List<Slide> slideList;
 
     @Column(name = "lifecycleStatus")
     private String lifecycleStatus;
+
+    public Study() {
+    }
 
 }
